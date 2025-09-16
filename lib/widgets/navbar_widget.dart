@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:ranapp/data/notifiers.dart';
 
-class NavbarWidget extends StatefulWidget {
+class NavbarWidget extends StatelessWidget {
   const NavbarWidget({super.key});
 
   @override
-  State<NavbarWidget> createState() => _NavbarWidgetState();
-}
-
-class _NavbarWidgetState extends State<NavbarWidget> {
-  int selectedIndex = 0;
-  @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      destinations: [
-        NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-        NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
-        NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-      ],
-      onDestinationSelected: (int index) {
-        setState(() {
-          selectedIndex = index;
+    return ValueListenableBuilder(
+      valueListenable: selectedPageNotifier,
+      builder: (context, value, child) {
+        return NavigationBar(destinations: [
+          NavigationDestination(
+              icon: Icon(
+                Icons.home,
+                color: value == 0 ? Colors.blue : Colors.grey,
+              ),
+              label: 'Home'),
+          NavigationDestination(
+              icon: Icon(
+                Icons.person,
+                color: value == 1 ? Colors.blue : Colors.grey,
+              ),
+              label: 'Profile'),
+        ], selectedIndex: value, onDestinationSelected: (int newValue) {
+          selectedPageNotifier.value = newValue;
         });
       },
-      selectedIndex: selectedIndex,
     );
   }
 }

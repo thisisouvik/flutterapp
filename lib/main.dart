@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ranapp/views/pages/widget_tree.dart';
+import 'package:ranapp/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());

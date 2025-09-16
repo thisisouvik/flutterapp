@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ranapp/data/notifiers.dart';
 import 'package:ranapp/views/pages/profile_page.dart';
 import 'package:ranapp/views/pages/home_page.dart';
 import 'package:ranapp/widgets/navbar_widget.dart';
 
-List<Widget> pages = [
-  HomePage(),
-  ProfilePage(),
-];
+List<Widget> pages = [HomePage(), ProfilePage()];
 
 class WidgetTree extends StatefulWidget {
   const WidgetTree({super.key});
@@ -20,7 +18,13 @@ class _WidgetTreeState extends State<WidgetTree> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Mapp')),
-      body: pages.elementAt(1),
+
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifier,
+        builder: (context, selectedPage, child) {
+          return pages.elementAt(selectedPage);
+        },
+      ),
       bottomNavigationBar: NavbarWidget(),
     );
   }
