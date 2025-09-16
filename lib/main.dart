@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ranapp/widgets/navbar_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,28 +34,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App'),
           centerTitle: true,
         ),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          onDestinationSelected: (int index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-          selectedIndex: selectedIndex,
-        ),
+        bottomNavigationBar: NavbarWidget()
       ),
     );
   }
