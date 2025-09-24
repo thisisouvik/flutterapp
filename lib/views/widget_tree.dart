@@ -17,7 +17,11 @@ class _WidgetTreeState extends State<WidgetTree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter Mapp')),
+      appBar: AppBar(title: Text('Flutter Mapp'),
+      centerTitle: true,
+      actions: [IconButton(onPressed: () {},
+       icon: ValueListenableBuilder(valueListenable: ValueNotifier(_value), builder: builder))],
+       ),
 
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
