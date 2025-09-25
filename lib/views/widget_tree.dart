@@ -19,8 +19,13 @@ class _WidgetTreeState extends State<WidgetTree> {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Mapp'),
       centerTitle: true,
-      actions: [IconButton(onPressed: () {},
-       icon: ValueListenableBuilder(valueListenable: ValueNotifier(_value), builder: builder))],
+      actions: [IconButton(onPressed: () { isDarkModeNotifier.value = !isDarkModeNotifier.value; },
+       icon: ValueListenableBuilder(valueListenable: isDarkModeNotifier, builder: (context, isDarkMode, child) {
+         return Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode);
+       },
+       ),
+       ),
+       ],
        ),
 
       body: ValueListenableBuilder(
