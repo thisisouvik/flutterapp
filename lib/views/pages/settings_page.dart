@@ -15,7 +15,8 @@ class _SettingsPageState extends State<SettingsPage> {
   String? menuItem;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(appBar: AppBar(title: Text('Settings'), centerTitle: true,),
+    body: SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -122,6 +123,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ],
         ),
       ),
-    );
+    ),
+  );
   }
 }
