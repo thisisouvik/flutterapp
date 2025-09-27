@@ -17,6 +17,7 @@ class _WidgetTreeState extends State<WidgetTree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(title: Text('Flutter Mapp'),
       centerTitle: true,
       actions: [IconButton(onPressed: () { isDarkModeNotifier.value = !isDarkModeNotifier.value; },
