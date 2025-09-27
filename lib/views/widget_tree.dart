@@ -3,6 +3,7 @@ import 'package:ranapp/data/notifiers.dart';
 import 'package:ranapp/views/pages/profile_page.dart';
 import 'package:ranapp/views/pages/home_page.dart';
 import 'package:ranapp/widgets/navbar_widget.dart';
+import 'package:ranapp/views/pages/settings_page.dart';
 
 List<Widget> pages = [HomePage(), ProfilePage()];
 
@@ -17,17 +18,36 @@ class _WidgetTreeState extends State<WidgetTree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      appBar: AppBar(title: Text('Flutter Mapp'),
-      centerTitle: true,
-      actions: [IconButton(onPressed: () { isDarkModeNotifier.value = !isDarkModeNotifier.value; },
-       icon: ValueListenableBuilder(valueListenable: isDarkModeNotifier, builder: (context, isDarkMode, child) {
-         return Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode);
-       },
-       ),
-       ),
-       ],
-       ),
+      appBar: AppBar(
+        title: Text('Flutter Mapp'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              isDarkModeNotifier.value = !isDarkModeNotifier.value;
+            },
+            icon: ValueListenableBuilder(
+              valueListenable: isDarkModeNotifier,
+              builder: (context, isDarkMode, child) {
+                return Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode);
+              },
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingsPage();
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
+          ),
+        ],
+      ),
 
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
