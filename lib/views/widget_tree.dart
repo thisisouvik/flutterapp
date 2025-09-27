@@ -8,7 +8,11 @@ import 'package:ranapp/views/pages/settings_page.dart';
 List<Widget> pages = [HomePage(), ProfilePage()];
 
 class WidgetTree extends StatefulWidget {
-  const WidgetTree({super.key});
+  const WidgetTree({
+    super.key, required this.title,
+    });
+
+  final String title;
 
   @override
   State<WidgetTree> createState() => _WidgetTreeState();
@@ -20,7 +24,7 @@ class _WidgetTreeState extends State<WidgetTree> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text('Flutter Mapp'),
+        title: Text('widget.title'),
         centerTitle: true,
         actions: [
           IconButton(
@@ -36,7 +40,7 @@ class _WidgetTreeState extends State<WidgetTree> {
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.push(   //pshReplacement thourgh pages forr login
                 context,
                 MaterialPageRoute(
                   builder: (context) {
