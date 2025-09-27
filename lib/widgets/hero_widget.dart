@@ -8,7 +8,8 @@ class HeroWidget extends StatelessWidget {
     return  Hero(
       tag: 'hero1',
       child: ClipRRect(
-                child: Image.asset('assets/images/sample.jpg'),
+                child: Image.asset('assets/images/sample.jpg', color: Colors.teal,
+                colorBlendMode: BlendMode.darken,),
               ),
     );
   }
