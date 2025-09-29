@@ -6,7 +6,7 @@ void main() {
   runApp(const MyApp());
 }
 
-//MAterial App (Stateful Widget)
+//Material App (Stateful Widget)
 //Scaffold
 //AppTitle
 //Bottom Navigation Bar

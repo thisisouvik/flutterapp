@@ -31,6 +31,14 @@ class _SettingsPageState extends State<SettingsPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              ElevatedButton(onPressed: () {
+
+              }, child: Text('Dialog Box')),
+              Divider(
+                color: Colors.cyanAccent,
+                thickness: 2,
+                endIndent: 200 ,
+              ),
               ElevatedButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
