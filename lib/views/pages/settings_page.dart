@@ -15,129 +15,142 @@ class _SettingsPageState extends State<SettingsPage> {
   String? menuItem;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Settings'), centerTitle: true,
-    leading: BackButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    ),
-    automaticallyImplyLeading: false,
-    ),
-    body: SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    duration: Duration(seconds: 1),
-                    content: Text('Hello from Snackbar'),
-                    behavior: SnackBarBehavior.floating,),
-                );
-              },
-              
-              child: Text('Open Snackbar'),
-            ),
-            DropdownButton(
-              value: menuItem,
-              items: [
-                DropdownMenuItem(value: 'e1', child: Text('Element 1')),
-                DropdownMenuItem(value: 'e2', child: Text('Element 2')),
-                DropdownMenuItem(value: 'e3', child: Text('Element 3')),
-              ],
-              onChanged: (value) {
-                setState(() {
-                  menuItem = value;
-                });
-              },
-            ),
-            TextField(
-              decoration: InputDecoration(border: OutlineInputBorder()),
-              onEditingComplete: () {
-                setState(() {});
-              },
-            ),
-            Text(controller.text),
-            Checkbox(
-              tristate: true,
-              value: isChecked,
-              onChanged: (bool? value) {
-                setState(() {
-                  isChecked = value!;
-                });
-              },
-            ),
-            CheckboxListTile.adaptive(
-              tristate: true,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+        centerTitle: true,
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        automaticallyImplyLeading: false,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      duration: Duration(seconds: 1),
+                      content: Text('Hello from Snackbar'),
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                },
 
-              title: Text("Open Snackbar"),
-              value: isChecked,
-              onChanged: (bool? value) {
-                setState(() {
-                  isChecked = value!;
-                });
-              },
-            ),
-            Switch.adaptive(
-              value: isSwitched,
-              onChanged: (bool value) {
-                setState(() {
-                  isSwitched = value;
-                });
-              },
-            ),
-            SwitchListTile.adaptive(
-              title: Text('Switch Style'),
-              value: isSwitched,
-              onChanged: (bool value) {
-                setState(() {
-                  isSwitched = value;
-                });
-              },
-            ),
-            Slider.adaptive(
-              max: 10.0,
-              value: sliderValue,
-              onChanged: (value) {
-                setState(() {
-                  sliderValue = value;
-                });
-              },
-            ),
-            InkWell(
-              onTap: () {
-              },
-              child: Container(
-                height: 200,
-                width: double.infinity,
-                color: Colors.white12,
+                child: Text('Open Snackbar'),
               ),
-            ),
-            
+              DropdownButton(
+                value: menuItem,
+                items: [
+                  DropdownMenuItem(value: 'e1', child: Text('Element 1')),
+                  DropdownMenuItem(value: 'e2', child: Text('Element 2')),
+                  DropdownMenuItem(value: 'e3', child: Text('Element 3')),
+                ],
+                onChanged: (value) {
+                  setState(() {
+                    menuItem = value;
+                  });
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(border: OutlineInputBorder()),
+                onEditingComplete: () {
+                  setState(() {});
+                },
+              ),
+              Text(controller.text),
+              Checkbox(
+                tristate: true,
+                value: isChecked,
+                onChanged: (bool? value) {
+                  setState(() {
+                    isChecked = value!;
+                  });
+                },
+              ),
+              CheckboxListTile.adaptive(
+                tristate: true,
 
-            FilledButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
-                foregroundColor: Colors.white,
+                title: Text("Open Snackbar"),
+                value: isChecked,
+                onChanged: (bool? value) {
+                  setState(() {
+                    isChecked = value!;
+                  });
+                },
               ),
-              child: Text('Click Me'),
-            ),
+              Switch.adaptive(
+                value: isSwitched,
+                onChanged: (bool value) {
+                  setState(() {
+                    isSwitched = value;
+                  });
+                },
+              ),
+              SwitchListTile.adaptive(
+                title: Text('Switch Style'),
+                value: isSwitched,
+                onChanged: (bool value) {
+                  setState(() {
+                    isSwitched = value;
+                  });
+                },
+              ),
+              Slider.adaptive(
+                max: 10.0,
+                value: sliderValue,
+                onChanged: (value) {
+                  setState(() {
+                    sliderValue = value;
+                  });
+                },
+              ),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 200,
+                  width: double.infinity,
+                  color: Colors.white12,
+                ),
+              ),
 
-            TextButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
-                foregroundColor: Colors.white,
+              FilledButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AboutDialog(title: Text('Alert Title'), content: Text('Alert Content', actions: [ FilledButton(onPressed: () {Navigation.pop(context)}, child: Text('Close'),)]
+                      ]));
+                    },
+                    
+
+                  );
+
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  foregroundColor: Colors.white,
+                ),
+                child: Text('alert Me'),
               ),
-              child: Text('Click Me'),
-            ),
-          ],
+
+              TextButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  foregroundColor: Colors.white,
+                ),
+                child: Text('Click Me'),
+              ),
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
   }
 }
