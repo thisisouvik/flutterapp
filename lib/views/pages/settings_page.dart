@@ -124,13 +124,20 @@ class _SettingsPageState extends State<SettingsPage> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return AboutDialog(title: Text('Alert Title'), content: Text('Alert Content', actions: [ FilledButton(onPressed: () {Navigation.pop(context)}, child: Text('Close'),)]
-                      ]));
+                      return AlertDialog(
+                        title: Text('Alert Title'),
+                        content: Text('Alert Content'),
+                        actions: [
+                          FilledButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('Close'),
+                          ),
+                        ],
+                      );
                     },
-                    
-
                   );
-
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
