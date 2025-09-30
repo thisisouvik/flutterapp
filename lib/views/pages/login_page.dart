@@ -13,6 +13,9 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controllerPw = TextEditingController();
   TextEditingController controllerEmail = TextEditingController();
 
+  String confirmedEmail = 'souvik@gmail.com';
+  String confirmedPw = '123';
+
   @override
   void dispose() {
     //dispose the thing when you don't nee things anymore
@@ -44,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                 setState(() {});
               },
             ),
-             SizedBox(height: 20.0),
+            SizedBox(height: 20.0),
             TextField(
               controller: controllerPw,
               decoration: InputDecoration(
@@ -58,21 +61,32 @@ class _LoginPageState extends State<LoginPage> {
                 setState(() {});
               },
             ),
-            SizedBox(height:20.0 ,),
-            FilledButton(onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                return WidgetTree(title: 'App',);
-              }
-              )
-              );
-            },
-            style: FilledButton.styleFrom(
-              minimumSize: Size(double.infinity, 40.0)
+            SizedBox(height: 20.0),
+            FilledButton(
+              onPressed: () {
+                onLoginPressed();
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 40.0),
+              ),
+              child: Text('Login'),
             ),
-            child: Text('Login'))
           ],
         ),
       ),
     );
+  }
+
+  void onLoginPressed() {
+    if (confirmedEmail == controllerEmail.text && confirmedPw == controllerPw.text) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return WidgetTree(title: 'App');
+          },
+        ),
+      );
+    }
   }
 }
