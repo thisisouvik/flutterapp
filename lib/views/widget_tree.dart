@@ -24,7 +24,7 @@ class _WidgetTreeState extends State<WidgetTree> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text('widget.title'),
+        title: Text(widget.title),
         centerTitle: true,
         actions: [
           IconButton(

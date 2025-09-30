@@ -21,14 +21,14 @@ class WelcomePage extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 50.0,
-                    letterSpacing: 50.0,
+                    letterSpacing: 25.0,
                   ),
                 ),
                 SizedBox(height: 20.0),
                 FilledButton(
                   onPressed: () {
                     Navigator.push(
-                      //pshReplacement thourgh pages forr login
+                      //pshReplacement through pages for login
                       context,
                       MaterialPageRoute(
                         builder: (context) {

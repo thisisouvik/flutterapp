@@ -20,10 +20,10 @@ class HeroWidget extends StatelessWidget {
             ),
           ),
         ),
-        Text('Title', style: TextStyle(
+        Text('Ranapp', style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 50.0,
-          letterSpacing: 50.0,
+          letterSpacing: 30.0,
           color: const Color.fromARGB(255, 211, 213, 208),
           ),
         ),
