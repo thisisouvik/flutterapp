@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ranapp/views/widget_tree.dart';
 import 'package:ranapp/widgets/hero_widget.dart';
-
-TextEditingController controller = TextEditingController();
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,17 +10,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController controllerPw = TextEditingController();
+  TextEditingController controllerEmail = TextEditingController();
+
   @override
   void dispose() {
     //dispose the thing when you don't nee things anymore
-    controller.dispose();
+    controllerPw.dispose();
+    controllerEmail.dispose();
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    // tis will run when you start the page
-    super.initState();
   }
 
   @override
@@ -33,12 +30,46 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             HeroWidget(title: 'RanApp'),
+            SizedBox(height: 20.0),
             TextField(
-              decoration: InputDecoration(border: OutlineInputBorder()),
+              controller: controllerEmail,
+              decoration: InputDecoration(
+                hint: Text('Email'),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+
               onEditingComplete: () {
                 setState(() {});
               },
             ),
+             SizedBox(height: 20.0),
+            TextField(
+              controller: controllerPw,
+              decoration: InputDecoration(
+                hint: Text('Password'),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+
+              onEditingComplete: () {
+                setState(() {});
+              },
+            ),
+            SizedBox(height:20.0 ,),
+            FilledButton(onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                return WidgetTree(title: 'App',);
+              }
+              )
+              );
+            },
+            style: FilledButton.styleFrom(
+              minimumSize: Size(double.infinity, 40.0)
+            ),
+            child: Text('Login'))
           ],
         ),
       ),
