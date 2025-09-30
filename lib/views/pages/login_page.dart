@@ -13,10 +13,16 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
-    // TODO: implement dispose
+    //dispose the thing when you don't nee things anymore
+    controller.dispose();
     super.dispose();
   }
-  
+
+  @override
+  void initState() {
+    // tis will run when you start the page
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
