@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Padding(padding: EdgeInsets.all(16.0),
     child: Column(
       children: [
-        HeroWidget(),
+        HeroWidget(title: 'Ranapp',),
         Container(width: double.infinity ,padding: EdgeInsets.symmetric(vertical: 10.0),
         child: Card(
           child: Padding(padding: EdgeInsets.all(20.0),
@@ -22,8 +22,10 @@ class HomePage extends StatelessWidget {
               Text('BasicWidget', style: KTextStyle.titleTealText),
               Text('This is the description', style: KTextStyle.descriptionText,)
             ],
-          ),),
-        ),)
+          ),
+          ),
+        ),
+        ),
       ],
     ),
     );  
