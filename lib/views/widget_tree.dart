@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ranapp/data/constants.dart';
 import 'package:ranapp/data/notifiers.dart';
 import 'package:ranapp/views/pages/profile_page.dart';
 import 'package:ranapp/views/pages/home_page.dart';
 import 'package:ranapp/widgets/navbar_widget.dart';
 import 'package:ranapp/views/pages/settings_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Widget> pages = [HomePage(), ProfilePage()];
 
@@ -28,7 +30,9 @@ class _WidgetTreeState extends State<WidgetTree> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
+              final SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool(KConstant.themeModeKey, isDarkModeNotifier.value);
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
             },
             icon: ValueListenableBuilder(

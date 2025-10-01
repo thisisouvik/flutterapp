@@ -10,3 +10,7 @@ class KTextStyle {
     fontSize: 16.0
   );
 }
+
+class KConstant {
+  static const String themeModeKey = 'themeModeKey';
+}
