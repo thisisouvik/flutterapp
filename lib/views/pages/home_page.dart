@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ranapp/data/constants.dart';
-import 'package:ranapp/views/pages/login_page.dart';
+import 'package:ranapp/views/pages/couses_page.dart';
 import 'package:ranapp/widgets/container_widget.dart';
 import 'package:ranapp/widgets/hero_widget.dart';
 
@@ -21,13 +21,14 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            HeroWidget(title: 'Ranapp', nextpage: LoginPage(title: 'App'),),
+            HeroWidget(title: 'Ranapp', nextpage: CousesPage(),),
             ...List.generate(5, (index) {
               return ContainerWidget(
                 title: list.elementAt(index),
                 description: 'This is a description',
               );
-            }),
+            }
+            ),
           ],
         ),
       ),
