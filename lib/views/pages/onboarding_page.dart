@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ranapp/views/pages/home_page.dart';
 import 'package:ranapp/views/pages/login_page.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -17,7 +16,7 @@ class OnboardingPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.asset('assets/lotties/home.json', height: 400.0),
+                Lottie.asset('assets/lotties/Car.json', height: 400.0),
                 SizedBox(height: 20.0),
                 Text('I am Loving this', textAlign: TextAlign.center,),
                 FilledButton(
