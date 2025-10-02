@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ranapp/views/pages/login_page.dart';
+import 'package:ranapp/views/pages/onboarding_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -32,7 +33,7 @@ class WelcomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginPage(title: 'Register',);
+                          return OnboardingPage();
                         },
                       ),
                     );
@@ -40,7 +41,7 @@ class WelcomePage extends StatelessWidget {
                   style: FilledButton.styleFrom(
                     maximumSize: Size(double.infinity, 40.0),
                   ),
-                  child: Text('Get Started'),
+                  child: Text('Register'),
                 ),
                 TextButton(
                   onPressed: () {

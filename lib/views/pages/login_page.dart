@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:ranapp/views/widget_tree.dart';
-import 'package:ranapp/widgets/hero_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                HeroWidget(title: 'RanApp'),
+                Lottie.asset('assets/lotties/home.json', height: 400.0),
                 SizedBox(height: 20.0),
                 TextField(
                   controller: controllerEmail,
