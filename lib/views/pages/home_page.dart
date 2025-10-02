@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ranapp/data/constants.dart';
+import 'package:ranapp/views/pages/login_page.dart';
 import 'package:ranapp/widgets/container_widget.dart';
 import 'package:ranapp/widgets/hero_widget.dart';
 
@@ -9,19 +11,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> list = [
+      KValue.basicLayout,
+      KValue.basicLayout2,
+      KValue.basicLayout3
+    ];
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            HeroWidget(title: 'Ranapp'),
+            HeroWidget(title: 'Ranapp', nextpage: LoginPage(title: 'App'),),
             ...List.generate(5, (index) {
               return ContainerWidget(
-                title: 'Basic Layout',
+                title: list.elementAt(index),
                 description: 'This is a description',
               );
-            },
-            ),
+            }),
           ],
         ),
       ),
